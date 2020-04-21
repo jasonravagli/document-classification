@@ -1,3 +1,11 @@
-dataset/
-debug/
-output/
+articoli/
+resources/datasets/rvl-cdip/*
+resources/debug/*
+resources/output/*
+resources/checkpoints/*
+resources/history/*
+
+notebooks/.ipynb_checkpoints/
+
+# exception to include empty directories
+!.gitkeep
