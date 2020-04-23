@@ -17,7 +17,7 @@ def set_application_root_path(root_path: str):
 
 def configure_logger(log_level):
     # Log both on file and console
-    fh = logging.FileHandler(os.path.join(config["paths"]["root"], config["paths"]["log_file"]))
+    fh = logging.FileHandler(os.path.join(config["paths"]["root"].get(), config["paths"]["log_file"].get()))
     fh.setLevel(logging.DEBUG)
     # create console handler with a higher log level
     ch = logging.StreamHandler(stream=sys.stdout)

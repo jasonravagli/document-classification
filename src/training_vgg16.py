@@ -28,7 +28,7 @@ import cv2
 from tqdm import tqdm
 import confuse
 import logging
-import core.src.configuration as config
+import configuration as config
 
 """General parameters and settings:"""
 

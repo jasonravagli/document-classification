@@ -1,7 +1,7 @@
 import os
 import argparse
 import logging
-import core.configuration as config
+import configuration as config
 
 if __name__ == "__main__":
     # Parse arguments
@@ -12,8 +12,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     config.add_command_line_args(args)
-    config.set_application_root_path(os.path.abspath("../../"))
+    config.set_application_root_path(os.path.abspath("../"))
 
     config.configure_logger(logging.DEBUG)
 
-    import core.src.training_vgg16
+    import training_vgg16
