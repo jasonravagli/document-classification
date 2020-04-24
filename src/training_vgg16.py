@@ -216,8 +216,8 @@ class LossHistory(keras.callbacks.Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         with open(self.file_path, "a") as csv_file:
-            statistics = np.asarray([[logs.get("loss"), logs.get("accuracy"), \
-                                      logs.get("val_loss"), logs.get("val_accuracy")]])
+            statistics = np.asarray([[logs.get("loss"), logs.get("accuracy"), logs.get("val_loss"), logs.get("val_accuracy")]], dtype=np.float)
+            print("Saved statistics: " + str(statistics))
             np.savetxt(csv_file, statistics)
 
 
