@@ -41,19 +41,23 @@ cnn_weights_checkpoint_path = os.path.join(config.config["paths"]["root"].get(),
 history_stats_path = os.path.join(config.config["paths"]["root"].get(), config.config["paths"]["history_stats"].get()) #"/content/drive/My Drive/document-classification/history/history_stats.csv"
 
 # Flag to generate CNN dataset (set it to False if the dataset has already been generated)
-generate_dataset = config.config["generate_dataset"].get()
+generate_dataset = config.config["generate_dataset"].get(bool)
 # False: skip training process and load the already learned weights to only evaluate the network
-train_network = config.config["train_network"].get()
+train_network = config.config["train_network"].get(bool)
 # True: resume the training from a checkpoint; False: start a new training
 # This flag is checked only if train_network=True
-resume_training = config.config["resume_training"].get()
+resume_training = config.config["resume_training"].get(bool)
 
 # Shape of the images read from the mini-dataset
 original_img_shape = config.config["original_img_shape"].get() #(1000, 750)
 # Shape of the images in input to the CNN
 cnn_image_shape = config.config["cnn_image_shape"].get() #(500, 375)
 # Number of images classes
-n_classes = config.config["n_classes"].get() #16
+n_classes = config.config["n_classes"].get(int) #16
+
+print(generate_dataset)
+print(train_network)
+print(resume_training)
 
 """Check if GPU is available:"""
 
