@@ -21,3 +21,7 @@ cnn_image_shape:
   - 375
 
 n_classes: 16
+
+training:
+  lr: 0.0001
+  batch_size: 16
