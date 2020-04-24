@@ -160,6 +160,8 @@ resources/output/*
 resources/checkpoints/*
 resources/history/*
 
+/src/default.profraw
+
 notebooks/.ipynb_checkpoints/
 
 # exception to include empty directories

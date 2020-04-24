@@ -56,9 +56,9 @@ n_classes = config.config["n_classes"].get() #16
 
 """Check if GPU is available:"""
 
-from tensorflow.python.client import device_lib 
-logging.info(device_lib.list_local_devices())
-assert tf.config.experimental.list_physical_devices('GPU')
+# from tensorflow.python.client import device_lib
+# logging.info(device_lib.list_local_devices())
+assert tf.test.is_gpu_available()
 
 """# Dataset preprocessing
 
