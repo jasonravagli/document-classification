@@ -15,6 +15,7 @@ Install required packages:
 
 """Import required packages:"""
 
+import os
 import h5py
 import numpy as np
 import tensorflow as tf
@@ -32,12 +33,12 @@ import configuration as config
 
 """General parameters and settings:"""
 
-original_dataset_path = config.config["paths"]["original_dataset"].get() #"/content/drive/My Drive/document-classification/datasets/rvl-cdip/mini-dataset-1600-200-200.h5"
-cnn_dataset_path = config.config["paths"]["cnn_dataset"].get() #"/content/drive/My Drive/document-classification/datasets/rvl-cdip/cnn-mini-dataset-1600-200-200.h5"
-cnn_model_path = config.config["paths"]["cnn_model"].get() #"/content/drive/My Drive/document-classification/models/model.json"
-cnn_weights_path = config.config["paths"]["cnn_weights"].get() #"/content/drive/My Drive/document-classification/models/weights.h5"
-cnn_weights_checkpoint_path = config.config["paths"]["cnn_weights_checkpoint"].get() #"/content/drive/My Drive/document-classification/checkpoints/checkpoint_weights.h5"
-history_stats_path = config.config["paths"]["history_stats"].get() #"/content/drive/My Drive/document-classification/history/history_stats.csv"
+original_dataset_path = os.path.join(config.config["paths"]["root"].get(), config.config["paths"]["original_dataset"].get()) #"/content/drive/My Drive/document-classification/datasets/rvl-cdip/mini-dataset-1600-200-200.h5"
+cnn_dataset_path = os.path.join(config.config["paths"]["root"].get(), config.config["paths"]["cnn_dataset"].get()) #"/content/drive/My Drive/document-classification/datasets/rvl-cdip/cnn-mini-dataset-1600-200-200.h5"
+cnn_model_path = os.path.join(config.config["paths"]["root"].get(), config.config["paths"]["cnn_model"].get()) #"/content/drive/My Drive/document-classification/models/model.json"
+cnn_weights_path = os.path.join(config.config["paths"]["root"].get(), config.config["paths"]["cnn_weights"].get()) #"/content/drive/My Drive/document-classification/models/weights.h5"
+cnn_weights_checkpoint_path = os.path.join(config.config["paths"]["root"].get(), config.config["paths"]["cnn_weights_checkpoint"].get()) #"/content/drive/My Drive/document-classification/checkpoints/checkpoint_weights.h5"
+history_stats_path = os.path.join(config.config["paths"]["root"].get(), config.config["paths"]["history_stats"].get()) #"/content/drive/My Drive/document-classification/history/history_stats.csv"
 
 # Flag to generate CNN dataset (set it to False if the dataset has already been generated)
 generate_dataset = config.config["generate_dataset"].get()
