@@ -69,7 +69,8 @@ print(batch_size)
 
 # from tensorflow.python.client import device_lib
 # logging.info(device_lib.list_local_devices())
-assert tf.test.is_gpu_available()
+#FIXME local running
+# assert tf.test.is_gpu_available()
 
 """# Dataset preprocessing
 
@@ -118,7 +119,9 @@ def generate_dataset_for_cnn(hdf_original_file, hdf_cnn_file, dataset_name):
             # Convert grayscale image to RGB (VGG16 needs color images)
             rgb_img = cv2.cvtColor(scaled_img, cv2.COLOR_GRAY2RGB)
             # Normalization
-            cnn_batch_imgs[i] = rgb_img / 255
+            normalized = rgb_img / 255
+            mean = np.mean(normalized)
+            cnn_batch_imgs[i] = normalized - mean
 
         # Write data batches
         ds_cnn_imgs[start_batch_index:end_batch_index] = cnn_batch_imgs
@@ -337,7 +340,7 @@ if train_network:
 
         checkpoint = ModelCheckpoint(
             cnn_weights_checkpoint_path)  # , monitor="val_accuracy", mode="max", save_best_only=True)
-        es = EarlyStopping(monitor="val_loss", mode="min", verbose=1, patience=100, restore_best_weights=True)
+        es = EarlyStopping(monitor="val_loss", mode="min", verbose=1, patience=500, restore_best_weights=True)
         loss_history = LossHistory(file_path=history_stats_path, resume_training=resume_training)
 
         # Train model on dataset
