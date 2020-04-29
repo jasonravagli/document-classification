@@ -69,8 +69,7 @@ print(batch_size)
 
 # from tensorflow.python.client import device_lib
 # logging.info(device_lib.list_local_devices())
-#FIXME local running
-# assert tf.test.is_gpu_available()
+assert tf.test.is_gpu_available()
 
 """# Dataset preprocessing
 
@@ -108,8 +107,8 @@ def generate_dataset_for_cnn(hdf_original_file, hdf_cnn_file, dataset_name):
         cnn_batch_labels = original_batch_labels
 
         # Preprocess all images in batch
-        for i in range(batch_size):
-            original_img = original_batch_imgs[i]
+        for j in range(batch_size):
+            original_img = original_batch_imgs[j]
             # De-normalization: bring back pixel values to the [0,255] range
             non_normalized_img = np.asarray(original_img * 255, dtype=np.uint8)
             # Scale the image to the target shape (height/width ratio is preserved due
@@ -121,7 +120,7 @@ def generate_dataset_for_cnn(hdf_original_file, hdf_cnn_file, dataset_name):
             # Normalization
             normalized = rgb_img / 255
             mean = np.mean(normalized)
-            cnn_batch_imgs[i] = normalized - mean
+            cnn_batch_imgs[j] = normalized - mean
 
         # Write data batches
         ds_cnn_imgs[start_batch_index:end_batch_index] = cnn_batch_imgs
