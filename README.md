@@ -8,9 +8,10 @@ Here we can see the main idea of our project, is to combine two classificator, o
 
 <img src="https://github.com/jasonravagli/document-classification/blob/master/img/overview.png" width="400" height="400" />
 
-We have realized 4 Google Colab noteboks, written in Python 3.6 using the [Fast.Ai libriray](https://www.fast.ai/)
+We have realized 5 Google Colab noteboks, written in Python 3.6 using the [Fast.Ai libriray](https://www.fast.ai/)
 
-mettere dot list aggiornata coi progetti nomi e funzionalità
-1. aaa
-2. bbb
-3. ccc
+1. Mini dataset generation: 
+2. VGG Image Document Classifier:
+3. Text Document Classifier:
+4. Features Fusion Document Classifier:
+5. Late Fusion Document Classifier:
