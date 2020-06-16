@@ -13,3 +13,6 @@ We realized 5 Google Colab notebooks using the [Fast.ai library](https://www.fas
 3. **Text Document Classifier:** Like the previus notebooks this create a text classifier model.
 4. **Features Fusion Document Classifier:** This notebooks allow us to load the two previus model created, manage the concatenation of the two representation and create a concat model for do experimets and fine tuning. 
 5. **Late Fusion Document Classifier:** This notebooks allow us to load the two previus model created, extract the probability vector of the frist two models and create the late fusion classifier.
+
+
+To replicate our experiment the only things you have to do is download [RVL-CDIP  dataset](https://www.cs.cmu.edu/~aharley/rvl-cdip/) and use locally the notebook 1, when you have extracted a mini dataset and you have uploaded on google drive you can just run other notebooks for replicate the experiments and change the hyperparameters.
